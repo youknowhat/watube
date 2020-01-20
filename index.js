@@ -8,7 +8,6 @@ const handleListening = () => {
 }
 
 const handleHome = (req, res) => {
-  console.log(req);
   res.send('Hello! from home');
 }
 

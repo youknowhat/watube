@@ -1,0 +1,14 @@
+{
+  "name": "watube",
+  "version": "1.0.0",
+  "description": "Cloning Youtube with Vanilla and NodeJS",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youknowhat/watube.git"
+  },
+  "author": "Junghyun Park",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

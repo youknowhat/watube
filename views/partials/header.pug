@@ -3,6 +3,9 @@ header.header
     h1
       a(href=routes.home) Watube
   .header_column
+    form(action=routes.search, method="get")
+      input(type="text", placeholder="Search by term" name="term")
+  .header_column
   ul
     li
       a(href=routes.join) Join

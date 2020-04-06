@@ -9,7 +9,7 @@ header.header
   ul
     if user.isAuthenticated
       li
-        a(href=routes.upload) 영상 업로드
+        a(href=`/videos${routes.upload}`) 영상 업로드
       li
         a(href=routes.userDetail(user.id)) 나의 프로필
       li

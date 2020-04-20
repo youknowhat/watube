@@ -19,8 +19,9 @@ export const search = (req, res) => {
   res.render('search', { pageTitle: 'Search', searchingBy, videos });
 };
 
-export const getUpload = (req, res) =>
+export const getUpload = (req, res) => {
   res.render('upload', { pageTitle: 'Uplaod' });
+}
 
 export const postUpload = async (req, res) => {
   const {
@@ -48,8 +49,22 @@ export const videoDetail = async (req, res) => {
   }
 }
 
-export const editVideo = (req, res) =>
+export const editVideo = (req, res) => {
   res.render('editVideo', { pageTitle: 'Edit Video' });
+}
 
-export const deleteVideo = (req, res) =>
+export const editUpload = async (req, res) => {
+  const {
+    body: { title, description },
+    params: { id }  
+  } = req;
+  const editVideo = await Video.update({ id }, {
+    title,
+    description
+  })
+  res.redirect(routes.videoDetail(editVideo.id));
+}
+
+export const deleteVideo = (req, res) => {
   res.render('deleteVideo', { pageTitle: 'Delete Video' });
+}

@@ -6,7 +6,7 @@ export const home = async (req, res) => {
     const videos = await Video.find({});
     res.render('home', { pageTitle: 'Home', videos });
   }
-  catch(error) {
+  catch (error) {
     console.log(error);
     res.render('home', { pageTitle: 'Home', videos: [] });
   }
@@ -49,20 +49,30 @@ export const videoDetail = async (req, res) => {
   }
 }
 
-export const editVideo = (req, res) => {
+export const getEditVideo = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    res.render('editVideo', { pageTitle: `Edit ${video.title}`, video })
+  } catch (error) {
+    res.redirect(routes.home);
+  }
   res.render('editVideo', { pageTitle: 'Edit Video' });
 }
 
-export const editUpload = async (req, res) => {
+export const postEditVideo = async (req, res) => {
   const {
     body: { title, description },
     params: { id }  
   } = req;
-  const editVideo = await Video.update({ id }, {
-    title,
-    description
-  })
-  res.redirect(routes.videoDetail(editVideo.id));
+  try {
+    await Video.findOneAndUpdate({ id }, { title,description })
+    res.redirect(routes.videoDetail(id));
+  } catch (error) {
+    res.redirect(routes.home);  
+  }
 }
 
 export const deleteVideo = (req, res) => {

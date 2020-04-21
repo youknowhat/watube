@@ -26,36 +26,32 @@ const routes = {
   search: SEARCH,
   users: USERS,
   userDetail: (id) => {
-    if(id) {
+    if (id) {
       return `/users/${id}`;
-    } else {
-      return USER_DETAIL;
     }
+    return USER_DETAIL;
   },
   editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
   videos: VIDEOS,
   upload: UPLOAD,
   videoDetail: (id) => {
-    if(id) {
+    if (id) {
       return `/videos/${id}`;
-    } else {
-      return VIDEO_DETAIL;
     }
+    return VIDEO_DETAIL;
   },
   editVideo: (id) => {
-    if(id) {
-      return `/videos/${id}/edit`
-    } else {
-      return EDIT_VIDEO
+    if (id) {
+      return `/videos/${id}/edit`;
     }
+    return EDIT_VIDEO;
   },
   deleteVideo: (id) => {
-    if(id) {
-      return `/videos/${id}/delete`
-    } else {
-      return DELETE_VIDEO
+    if (id) {
+      return `/videos/${id}/delete`;
     }
+    return DELETE_VIDEO;
   },
 };
 

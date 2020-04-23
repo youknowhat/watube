@@ -12,16 +12,16 @@
     &:not(:last-child) {
       margin-bottom: 15px;
     }
-    span {
+    i {
       margin-right: 10px;
       font-size: 20px;
     }
   }
-  .social-login--github {
+  .social-login__github {
     background-color: $black;
     color: white;
   }
-  .social-login--facebook {
+  .social-login__facebook {
     background-color: #3a5998;
     color: white;
   }

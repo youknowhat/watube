@@ -1,22 +1,22 @@
 header.header
-  .header_column
-    h1
-      a(href=routes.home) Watube
-  .header_column
-    form(action=routes.search, method="get")
-      input(type="text", placeholder="Search by term" name="term")
-  .header_column
-  ul
-    if user.isAuthenticated
-      li
-        a(href=`/videos${routes.upload}`) 영상 업로드
-      li
-        a(href=routes.userDetail(user.id)) 나의 프로필
-      li
-        a(href=routes.logout) 로그아웃
-    else
-      li
-        a(href=routes.join) 회원가입
-      li
-        a(href=routes.login) 로그인
-      
+  .header__wrapper
+    .header__column
+      a(href=routes.home)
+        i.fab.fa-youtube
+    .header__column
+      form(action=routes.search, method="get")
+        input(type="text", placeholder="Search by term...", name="term")
+    .header__column
+      ul
+        if !user.isAuthenticated
+          li
+            a(href=routes.join) Join
+          li
+            a(href=routes.login) Log In
+        else 
+          li
+            a(href=`/videos${routes.upload}`) Upload
+          li
+            a(href=routes.userDetail(user.id)) Profile
+          li
+            a(href=routes.logout) Log Out

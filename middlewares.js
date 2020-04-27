@@ -6,10 +6,7 @@ const multerVideo = multer({ dest: 'uploads/videos/' });
 export const localMiddleware = (req, res, next) => {
   res.locals.siteName = 'Watube';
   res.locals.routes = routes;
-  res.locals.user = {
-    isAuthenticated: false,
-    id: 1,
-  };
+  res.locals.user = req.user || {}; // passport에서 제공하는 user 정보를 템플릿에서 접근하기 위함
   next();
 };
 

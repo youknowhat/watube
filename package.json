@@ -8,6 +8,12 @@
     "url": "git+https://github.com/youknowhat/watube.git"
   },
   "author": "Junghyun Park",
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not IE_Mob 11",
+    "maintained node versions"
+  ],
   "dependencies": {
     "@babel/core": "^7.8.3",
     "@babel/node": "^7.8.3",

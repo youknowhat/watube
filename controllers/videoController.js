@@ -19,7 +19,7 @@ export const search = async (req, res) => {
   try {
     videos = await Video.find({ title: { $regex: searchingBy, $options: 'i' } });
   } catch (error) {
-    console.error(error);
+    alert(error);
   }
   res.render('search', { pageTitle: 'Search', searchingBy, videos });
 };
@@ -49,7 +49,7 @@ export const videoDetail = async (req, res) => {
     const video = await Video.findById(id);
     res.render('videoDetail', { pageTitle: video.title, video });
   } catch (error) {
-    console.error(error);
+    alert(error);
     res.redirect(routes.home);
   }
 };
@@ -87,7 +87,7 @@ export const deleteVideo = async (req, res) => {
   try {
     await Video.findOneAndRemove({ _id: id });
   } catch (error) {
-    console.error(error);
+    alert(error);
   }
   res.redirect(routes.home);
 };

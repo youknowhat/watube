@@ -12,7 +12,6 @@ export const postJoin = async (req, res, next) => {
       name, email, password, password2,
     },
   } = req;
-  console.log(`name: ${name} email: ${email}`, req.body);
 
   if (password !== password2) {
     res.status(400);
@@ -26,7 +25,7 @@ export const postJoin = async (req, res, next) => {
       await User.register(user, password);
       next();
     } catch (error) {
-      console.error(error);
+      alert(error);
       res.redirect(routes.home);
     }
   }
